@@ -7,7 +7,7 @@ Para clonar o projeto, basta executar o comando no diretório desejado:
 ##Buildando o programa
 Primeiramente, vá até o diretório que você clonou o projeto:
 
-	cd <diretorio_do_projeto>
+	cd <diretorio_do_projeto>/TR1-Project---Partiu-SS
 
 Depois execute o seguinte comando:
 
