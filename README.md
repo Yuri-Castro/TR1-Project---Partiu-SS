@@ -22,4 +22,4 @@ E builde o programa com o ns-3:
 ##Executando o programa
 Ainda na pasta _ns-3.25_:
 
-	make run
+	./waf --run main 
