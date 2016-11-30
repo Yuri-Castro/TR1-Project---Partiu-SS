@@ -14,9 +14,11 @@ Depois execute o seguinte comando:
 	make build
 
 ##Executando o programa
+Execute o seguinte comando:
 
 	make run
 
 ##Apagando arquivos criados pela operação de build
+Execute o seguinte comando:
 
 	make clean
