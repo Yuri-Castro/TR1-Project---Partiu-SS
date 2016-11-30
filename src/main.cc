@@ -36,7 +36,7 @@ int main() {
 
     /* Configura endereços */
     Ipv4AddressHelper address;
-    address.SetBAse("10.1.1.0", "255.255.255.0");
+    address.SetBase("10.1.1.0", "255.255.255.0");
     Ipv4InterfaceContainer interfaces = address.Assign(devices);
 
     /* Configura nó receptor */
@@ -47,12 +47,12 @@ int main() {
     serverApps.Stop(Seconds(10.0));
 
     /* Configura nó transmissor */
-    UpdEchoClientHelper echoClient(interface.GetAddress(1), 9);
+    UdpEchoClientHelper echoClient(interfaces.GetAddress(1), 9);
     echoClient.SetAttribute("MaxPackets", UintegerValue(10));
     echoClient.SetAttribute("Interval", TimeValue(Seconds(1.0)));
-    echoClient.SetAtribute("PacketSize", UintegerValur(1024));
+    echoClient.SetAttribute("PacketSize", UintegerValue(1024));
 
-    ApplicationContainer clientApps = echoClient.Install(ndoes.Get(0));
+    ApplicationContainer clientApps = echoClient.Install(nodes.Get(0));
     clientApps.Start(Seconds(0.0));
     clientApps.Stop(Seconds(10.0));
 
