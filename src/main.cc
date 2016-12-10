@@ -6,6 +6,7 @@
 #include "ns3/mobility-module.h"
 #include "ns3/csma-module.h"
 #include "ns3/internet-module.h"
+#include "ns3/netanim-module.h"
 
 
 // Topologia da simulação
@@ -55,7 +56,7 @@ void criaDispositivoWifi(Ptr<Node> noAp, uint32_t nNosExtras, bool isFirst);
 
 int main(int argc, char *argv[]) {
     bool verbose = true;
-    bool tracing = false;
+    bool tracing = true;
     uint32_t nCsma = 3;
     uint32_t nWifi = 3;
 
@@ -166,7 +167,21 @@ int main(int argc, char *argv[]) {
         phy.EnablePcap("main", dispositivosWifiDois_Ap.Get(0));
         csma.EnablePcap("main", dispositivosCSMAUm.Get(0), true);
         csma.EnablePcap("main", dispositivosCSMADois.Get(0), true);
+
+        AnimationInterface::SetConstantPosition(nosWifiApUm.Get(0), 2, 2);
+        AnimationInterface::SetConstantPosition(nosWifiApDois.Get(0), 2, 7);
+        AnimationInterface::SetConstantPosition(nosCSMAUm.Get(0), 4, 2);
+        AnimationInterface::SetConstantPosition(nosCSMAUm.Get(1), 5, 2);
+        AnimationInterface::SetConstantPosition(nosCSMAUm.Get(2), 6, 2);
+        AnimationInterface::SetConstantPosition(nosCSMAUm.Get(3), 7, 2);
+        AnimationInterface::SetConstantPosition(nosCSMADois.Get(0), 4, 7);
+        AnimationInterface::SetConstantPosition(nosCSMADois.Get(1), 5, 7);
+        AnimationInterface::SetConstantPosition(nosCSMADois.Get(2), 6, 7);
+        AnimationInterface::SetConstantPosition(nosCSMADois.Get(3), 7, 7);
+
+        AnimationInterface anim ("animation.xml");
     }
+
 
     /* Finaliza simulação */
     Simulator::Run();
