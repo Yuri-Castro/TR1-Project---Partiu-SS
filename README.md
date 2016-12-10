@@ -12,7 +12,7 @@ Primeiro, copie o arquivo `main.cc` para pasta _scratch_ do ns-3:
 
 Depois vá para pasta _ns-3.25_:
 
-	cd <source_ns_3>/ns-3.25/scratch
+	cd <source_ns_3>/ns-3.25
 
 E builde o programa com o ns-3:
 
