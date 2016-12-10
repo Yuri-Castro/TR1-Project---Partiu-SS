@@ -143,22 +143,22 @@ int main(int argc, char *argv[]) {
 
     UdpEchoServerHelper echoServer(9);
 
-    ApplicationContainer serverApps = echoServer.Install(nosCSMADois.Get(nCsma - 1));
+    ApplicationContainer serverApps = echoServer.Install(nosCSMAUm.Get(0));
     serverApps.Start (Seconds (1.0));
     serverApps.Stop (Seconds (30.0));
 
-    UdpEchoClientHelper echoClient (csmaIntefacesDois.GetAddress(nCsma - 1), 9);
-    echoClient.SetAttribute ("MaxPackets", UintegerValue (1));
+    UdpEchoClientHelper echoClient (csmaInterfacesUm.GetAddress(0), 9);
+    echoClient.SetAttribute ("MaxPackets", UintegerValue (30));
     echoClient.SetAttribute ("Interval", TimeValue (Seconds (1.0)));
     echoClient.SetAttribute ("PacketSize", UintegerValue (1024));
 
     ApplicationContainer clientApps = echoClient.Install(nosWifiStaDois.Get(nWifi - 1));
     clientApps.Start(Seconds(2.0));
-    clientApps.Stop(Seconds(30.0));
+    clientApps.Stop(Seconds(31.0));
 
     Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
 
-    Simulator::Stop (Seconds (30.0));
+    Simulator::Stop (Seconds (31.0));
 
     if (tracing) {
         pontoAPonto.EnablePcapAll("main");
