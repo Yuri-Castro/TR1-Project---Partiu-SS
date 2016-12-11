@@ -174,21 +174,20 @@ int main(int argc, char *argv[]) {
         phy.EnablePcap("main", WifiDois.deviceApContainer.Get(0));
         csma.EnablePcap("main", CSMAUm.deviceContainer.Get(0), true);
         csma.EnablePcap("main", CSMADois.deviceContainer.Get(0), true);
-
-        AnimationInterface::SetConstantPosition(WifiUm.nodeApContainer.Get(0), 2, 2);
-        AnimationInterface::SetConstantPosition(WifiDois.nodeApContainer.Get(0), 2, 7);
-        AnimationInterface::SetConstantPosition(CSMAUm.nodeContainer.Get(0), 4, 2);
-        AnimationInterface::SetConstantPosition(CSMAUm.nodeContainer.Get(1), 5, 2);
-        AnimationInterface::SetConstantPosition(CSMAUm.nodeContainer.Get(2), 6, 2);
-        AnimationInterface::SetConstantPosition(CSMAUm.nodeContainer.Get(3), 7, 2);
-        AnimationInterface::SetConstantPosition(CSMADois.nodeContainer.Get(0), 4, 7);
-        AnimationInterface::SetConstantPosition(CSMADois.nodeContainer.Get(1), 5, 7);
-        AnimationInterface::SetConstantPosition(CSMADois.nodeContainer.Get(2), 6, 7);
-        AnimationInterface::SetConstantPosition(CSMADois.nodeContainer.Get(3), 7, 7);
-
-        AnimationInterface anim ("animation.xml");
     }
 
+    AnimationInterface::SetConstantPosition(WifiUm.nodeApContainer.Get(0), 4, 4);
+    AnimationInterface::SetConstantPosition(WifiDois.nodeApContainer.Get(0), 4, 11);
+    AnimationInterface::SetConstantPosition(CSMAUm.nodeContainer.Get(0), 8, 5);
+    AnimationInterface::SetConstantPosition(CSMAUm.nodeContainer.Get(1), 10, 5);
+    AnimationInterface::SetConstantPosition(CSMAUm.nodeContainer.Get(2), 12, 5);
+    AnimationInterface::SetConstantPosition(CSMAUm.nodeContainer.Get(3), 14, 5);
+    AnimationInterface::SetConstantPosition(CSMADois.nodeContainer.Get(0), 8, 10);
+    AnimationInterface::SetConstantPosition(CSMADois.nodeContainer.Get(1), 10, 10);
+    AnimationInterface::SetConstantPosition(CSMADois.nodeContainer.Get(2), 12, 10);
+    AnimationInterface::SetConstantPosition(CSMADois.nodeContainer.Get(3), 14, 10);
+
+    AnimationInterface anim ("animation.xml");
 
     /* Finaliza simulação */
     Simulator::Run();
